@@ -1,0 +1,17 @@
+.articles {
+  font-family: sans-serif;
+
+  &_title {
+    color: red;
+  }
+
+  &_list{
+    list-style: none;
+
+    &--item {
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+    }
+
+  }
+}
