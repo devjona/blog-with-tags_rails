@@ -50,6 +50,7 @@ gem 'sassc-rails'
 
 # GEMS I HAVE ADDED:
 # gem 'erb_lint', require: false
+gem 'htmlbeautifier'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
