@@ -7,15 +7,16 @@
 } %>
 <%= link_to "All Articles", articles_path %>
 
-<h2>Comments</h2>
-<% if @article.comments.count > 0 %>
-  <% @article.comments.each do |comment| %>
-    <%= render @article.comments %>
-  <% end %>
-<% else %>
-  <p>No comments yet...</p>
-<% end %>
+<div class="comments">
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-<%# If you render the comments here, you'll see an empty set of comments. My guess is that @article.comments.build is creating an empty comment but it isn't saved until user clicks the button. %>
+  <section>
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </section>
+
+  <section>
+    <h2>Comments</h2>
+    <%= render @article.comments %>
+    <%# If you render the comments here, you'll see an empty set of comments. My guess is that @article.comments.build is creating an empty comment but it isn't saved until user clicks the button. %>
+  </section>
+</div>

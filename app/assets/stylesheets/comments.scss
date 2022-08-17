@@ -1,0 +1,14 @@
+.comments {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.comment {
+  border-left: .25rem solid white;
+  padding-left: 1rem;
+  margin: .25rem 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
