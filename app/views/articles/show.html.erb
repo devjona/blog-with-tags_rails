@@ -1,6 +1,17 @@
 <h2><%= @article.title %></h2>
+
+<section class="article_tags">
+  <h3>Tags:</h3>
+  <%= render 'tags/form' %>
+  <section class="article_tag_group">
+    <%= render @article.tags %>
+  </section>
+</section>
+
 <p><%= @article.body %></p>
+
 <%= link_to "Edit this Article", edit_article_path(@article) %>
+
 <%= link_to "Destroy me!", article_path(@article), data: {
   turbo_method: :delete,
   turbo_confirm: "Are you sure?"
@@ -17,6 +28,6 @@
   <section>
     <h2>Comments</h2>
     <%= render @article.comments %>
-    <%# If you render the comments here, you'll see an empty set of comments. My guess is that @article.comments.build is creating an empty comment but it isn't saved until user clicks the button. %>
+    <%# REFACTOR If you render the comments here, you'll see an empty set of comments. My guess is that @article.comments.build is creating an empty comment but it isn't saved until user clicks the button. %>
   </section>
 </div>

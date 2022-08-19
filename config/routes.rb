@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   # The 'articles' routes from above are replaced by:
   resources :articles do
     resources :comments
+    resources :tags
   end
 end
