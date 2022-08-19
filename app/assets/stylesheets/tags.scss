@@ -1,0 +1,21 @@
+@import 'colors';
+
+.article_tags {
+
+  // form styles here...
+
+  // styles for the tag group
+  .article_tag_group {
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+
+    &__tag {
+      border: 1px solid transparent;
+      background-color: $orange;
+      color: white;
+      border-radius: 1.5rem;
+      padding: .125rem 1rem;
+    }
+  }
+}

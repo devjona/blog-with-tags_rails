@@ -1,10 +1,33 @@
-<h1><%= @article.title %></h1>
+<h2><%= @article.title %></h2>
+
+<section class="article_tags">
+  <h3>Tags:</h3>
+  <%= render 'tags/form' %>
+
+  <div class="article_tag_group">
+    <%= render @article.tags.select(&:persisted?) %>
+  </div>
+</section>
+
 <p><%= @article.body %></p>
 
 <%= link_to "Edit this Article", edit_article_path(@article) %>
+
 <%= link_to "Destroy me!", article_path(@article), data: {
   turbo_method: :delete,
   turbo_confirm: "Are you sure?"
 } %>
-
 <%= link_to "All Articles", articles_path %>
+
+<div class="comments">
+
+  <section>
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </section>
+
+  <section>
+    <h2>Comments</h2>
+    <%= render @article.comments.select(&:persisted?) %>
+  </section>
+</div>

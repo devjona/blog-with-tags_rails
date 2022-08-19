@@ -1,0 +1,12 @@
+<%# INVESTIGATE: Is this causing the empty tag to show prior to submission? %>
+<%= form_with model: [@article, @article.tags.build] do |form| %>
+  <p>
+    <%= form.label :name, "Tag name" %>
+  </p>
+  <p>
+    <%= form.text_field :name %>
+  </p>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
