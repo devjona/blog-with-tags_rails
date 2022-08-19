@@ -3,9 +3,10 @@
 <section class="article_tags">
   <h3>Tags:</h3>
   <%= render 'tags/form' %>
-  <section class="article_tag_group">
-    <%= render @article.tags %>
-  </section>
+
+  <div class="article_tag_group">
+    <%= render @article.tags.select(&:persisted?) %>
+  </div>
 </section>
 
 <p><%= @article.body %></p>
@@ -27,7 +28,6 @@
 
   <section>
     <h2>Comments</h2>
-    <%= render @article.comments %>
-    <%# REFACTOR If you render the comments here, you'll see an empty set of comments. My guess is that @article.comments.build is creating an empty comment but it isn't saved until user clicks the button. %>
+    <%= render @article.comments.select(&:persisted?) %>
   </section>
 </div>

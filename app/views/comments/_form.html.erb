@@ -1,3 +1,4 @@
+<%# INVESTIGATE: Is this causing the empty comment to show prior to submission? %>
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
     <%= form.label :commenter %>

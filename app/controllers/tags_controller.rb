@@ -6,7 +6,7 @@ class TagsController < ApplicationController
     redirect_to article_path(@article)
   end
 
-  # BUG: This method is useless
+  # INVESTIGATE This method doesn't do anything.
   # def show
   #   @article = Article.find(params[:article_id])
   #   @tags = @article.tags
