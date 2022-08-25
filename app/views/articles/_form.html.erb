@@ -6,6 +6,12 @@
       <div><%= message %></div>
     <% end %>
   </div>
+  <div class="">
+    <p>
+      <%= form.label :status%>
+    </p>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body, :class => "add_article__textarea" %><br>

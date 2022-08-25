@@ -1,10 +1,13 @@
 <div class="articles">
   <h2 class="articles_title">Articles</h2>
+  <p>Our blog has <%= Article.public_count %> public articles and counting!</p>
   <ul class="articles_list">
     <% @articles.each do |article| %>
-      <li class="articles_list--item">
-        <%= link_to article.title, article %>
-      </li>
+      <% unless article.archived? %>
+        <li class="articles_list--item">
+          <%= link_to article.title, article %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
   <%= link_to "New Article", new_article_path, :class => "btn", :role => "button"%>
