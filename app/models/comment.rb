@@ -4,6 +4,6 @@ class Comment < ApplicationRecord
   belongs_to :article
 
   def sample_method
-    logger.debug "I'm calling this method from the controller. It will log stuff."
+    logger.debug "*** I'm calling this method from the controller. It will log stuff. ***"
   end
 end
