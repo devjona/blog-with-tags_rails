@@ -18,15 +18,16 @@
 } %>
 <%= link_to "All Articles", articles_path %>
 
-<div class="comments">
+<turbo-frame id="comments">
+  <div class="comments">
+    <section>
+      <h2>Add a comment:</h2>
+      <%= render 'comments/form' %>
+    </section>
 
-  <section>
-    <h2>Add a comment:</h2>
-    <%= render 'comments/form' %>
-  </section>
-
-  <section>
-    <h2>Comments</h2>
-    <%= render @article.comments.select(&:persisted?) %>
-  </section>
-</div>
+    <section>
+      <h2>Comments</h2>
+      <%= render @article.comments.select(&:persisted?) %>
+    </section>
+  </div>
+</turbo-frame>
