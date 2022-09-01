@@ -7,7 +7,7 @@
     color: $orange;
   }
 
-  &_list{
+  &_list {
     &--item {
       padding-top: .5rem;
       padding-bottom: .5rem;
@@ -16,12 +16,19 @@
   }
 }
 
+.article-container {
+  display: grid;
+  grid-template-areas: "article tags";
+  grid-template-columns: 9fr 3fr;
+  column-gap: 2rem;
+}
+
 .add_article {
   border: 1px solid $orange;
   border-radius: .5rem;
   padding: 1rem;
 
-   &__textarea {
-     min-height: 33vh;
-   }
+  &__textarea {
+    min-height: 33vh;
+  }
 }

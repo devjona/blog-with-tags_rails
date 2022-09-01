@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @tag = @article.tags.create(tag_params)
-    redirect_to article_path(@article)
+    redirect_to edit_article_path(@article)
   end
 
   # INVESTIGATE This method doesn't do anything.
