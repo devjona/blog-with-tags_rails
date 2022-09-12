@@ -22,14 +22,3 @@
     }
   }
 }
-
-.article_links {
-  display: flex;
-  gap: 1rem;
-
-  &__link {
-    &--right {
-      margin-left: auto;
-    }
-  }
-}

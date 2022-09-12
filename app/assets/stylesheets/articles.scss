@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'breakpoints';
 
 .articles {
   font-family: sans-serif;
@@ -17,10 +18,31 @@
 }
 
 .article-container {
-  display: grid;
-  grid-template-areas: "article tags";
-  grid-template-columns: 9fr 3fr;
-  column-gap: 2rem;
+  .article_links {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .article-container {
+    display: grid;
+    grid-template-areas: "article tags";
+    grid-template-columns: 9fr 3fr;
+    column-gap: 2rem;
+
+    .article_links {
+      flex-direction: row;
+      gap: 1rem;
+
+      &__link {
+        &--right {
+          margin-left: auto;
+        }
+      }
+    }
+  }
 }
 
 .add_article {

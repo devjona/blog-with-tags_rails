@@ -9,8 +9,8 @@
 
       <%= link_to "Destroy me!", article_path(@article), :class => "article_links__link--right", data: {
         turbo_method: :delete,
-  turbo_confirm: "Are you sure?"
-} %>
+        turbo_confirm: "Are you sure?"
+      } %>
     </div>
     <p><%= @article.body %></p>
   </div>
@@ -24,13 +24,13 @@
 </div>
 
 <turbo-frame id="comments-container">
-  <section>
-    <h2>Add a comment:</h2>
+  <section class="comments_add">
+    <h3>Add a comment:</h3>
     <%= render 'comments/form' %>
   </section>
 
   <section class="comments">
-    <h2>Comments</h2>
+    <h4>Comments</h4>
     <%= render @article.comments.select(&:persisted?) %>
   </section>
 </turbo-frame>
