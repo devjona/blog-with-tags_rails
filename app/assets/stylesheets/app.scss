@@ -4,3 +4,7 @@
 body {
   grid-template-columns: 1fr minmax(300px, 60%) 1fr;
 }
+
+section {
+  border: none;
+}

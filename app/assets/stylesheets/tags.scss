@@ -8,6 +8,7 @@
   .article_tag_group {
     padding-top: 1rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 
     &__tag {
@@ -16,6 +17,8 @@
       color: white;
       border-radius: 1.5rem;
       padding: .125rem 1rem;
+      font-size: .825rem;
+      white-space: nowrap;
     }
   }
 }

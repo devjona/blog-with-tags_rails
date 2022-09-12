@@ -1,33 +1,36 @@
-<h2><%= @article.title %></h2>
+<div class="article-container">
+  <div class="article">
 
-<p><%= @article.body %></p>
-<section class="article_tags">
-  <h3>Tags:</h3>
-  <%= render 'tags/form' %>
+    <h2><%= @article.title %></h2>
 
-  <div class="article_tag_group">
-    <%= render @article.tags.select(&:persisted?) %>
+    <div class="article_links">
+      <%= link_to "All Articles", articles_path %>
+      <%= link_to "Edit this Article", edit_article_path(@article) %>
+
+      <%= link_to "Destroy me!", article_path(@article), :class => "article_links__link--right", data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    </div>
+    <p><%= @article.body %></p>
   </div>
-</section>
 
-<%= link_to "Edit this Article", edit_article_path(@article) %>
-
-<%= link_to "Destroy me!", article_path(@article), data: {
-  turbo_method: :delete,
-  turbo_confirm: "Are you sure?"
-} %>
-<%= link_to "All Articles", articles_path %>
-
-<turbo-frame id="comments">
-  <div class="comments">
-    <section>
-      <h2>Add a comment:</h2>
-      <%= render 'comments/form' %>
-    </section>
-
-    <section>
-      <h2>Comments</h2>
-      <%= render @article.comments.select(&:persisted?) %>
-    </section>
+  <div class="article_tags">
+    <h3>Tags:</h3>
+    <div class="article_tag_group">
+      <%= render @article.tags.select(&:persisted?) %>
+    </div>
   </div>
+</div>
+
+<turbo-frame id="comments-container">
+  <section class="comments_add">
+    <h3>Add a comment:</h3>
+    <%= render 'comments/form' %>
+  </section>
+
+  <section class="comments">
+    <h4>Comments</h4>
+    <%= render @article.comments.select(&:persisted?) %>
+  </section>
 </turbo-frame>

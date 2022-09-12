@@ -1,4 +1,13 @@
 <div class="add_article">
   <h1>Edit Article</h1>
   <%= render "form", article: @article %>
+
+  <turbo-frame id="tags-container" class="article_tags">
+    <h3>Tags:</h3>
+    <%= render 'tags/form' %>
+
+    <div class="article_tag_group">
+      <%= render @article.tags.select(&:persisted?) %>
+    </div>
+  </turbo-frame>
 </div>

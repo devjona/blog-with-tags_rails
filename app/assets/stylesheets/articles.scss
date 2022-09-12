@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'breakpoints';
 
 .articles {
   font-family: sans-serif;
@@ -7,7 +8,7 @@
     color: $orange;
   }
 
-  &_list{
+  &_list {
     &--item {
       padding-top: .5rem;
       padding-bottom: .5rem;
@@ -16,12 +17,40 @@
   }
 }
 
+.article-container {
+  .article_links {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .article-container {
+    display: grid;
+    grid-template-areas: "article tags";
+    grid-template-columns: 9fr 3fr;
+    column-gap: 2rem;
+
+    .article_links {
+      flex-direction: row;
+      gap: 1rem;
+
+      &__link {
+        &--right {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
+
 .add_article {
   border: 1px solid $orange;
   border-radius: .5rem;
   padding: 1rem;
 
-   &__textarea {
-     min-height: 33vh;
-   }
+  &__textarea {
+    min-height: 33vh;
+  }
 }
