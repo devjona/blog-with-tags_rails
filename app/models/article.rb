@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  has_rich_text :body
   include Visible
 
   has_many :comments, dependent: :destroy
