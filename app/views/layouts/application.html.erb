@@ -18,6 +18,10 @@
           <p>
             <%= current_user.email %> is logged in 
           </p>
+
+          <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
         <% end %>
       </nav>
       <div class="">
