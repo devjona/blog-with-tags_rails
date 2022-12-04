@@ -5,12 +5,15 @@
 
     <div class="article_links">
       <%= link_to "All Articles", articles_path %>
-      <%= link_to "Edit this Article", edit_article_path(@article) %>
 
-      <%= link_to "Destroy me!", article_path(@article), :class => "article_links__link--right", data: {
+      <% if user_signed_in? %>
+        <%= link_to "Edit this Article", edit_article_path(@article) %>
+
+        <%= link_to "Destroy me!", article_path(@article), :class => "article_links__link--right", data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"
       } %>
+      <% end %>
     </div>
     <p><%= @article.body %></p>
   </div>
