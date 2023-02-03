@@ -13,7 +13,22 @@
 
   <body>
     <div class="container">
-      <h1>My Blog</h1>
+      <nav class="blog-nav">
+        <% if current_user %>
+          <p>
+            <%= current_user.email %> is logged in 
+          </p>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </nav>
+      <div class="">
+        <h1>
+          <%= link_to "My Blog", root_path %>
+        </h1>
+
+      </div>
       <%= yield %>
     </div>
   </body>
