@@ -1,6 +1,9 @@
 <div class="add_article">
-  <h1>Edit Article</h1>
-  <%= render "form", article: @article %>
+  <turbo-frame id="article_<%=@article.id%>">
+    <h1>Edit Article</h1>
+    <%= render "form", article: @article %>
+
+  </turbo-frame>
 
   <turbo-frame id="tags-container" class="article_tags">
     <h3>Tags:</h3>

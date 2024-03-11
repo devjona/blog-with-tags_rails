@@ -1,22 +1,25 @@
 <div class="article-container">
-  <div class="article">
+  <turbo-frame id="article_<%=@article.id%>">
+    <div class="article">
 
-    <h2><%= @article.title %></h2>
+      <h2><%= @article.title %></h2>
 
-    <div class="article_links">
-      <%= link_to "All Articles", articles_path %>
+      <div class="article_links">
+        <%= link_to "All Articles", articles_path, data: { 'turbo-frame':"_top" } %>
 
-      <% if user_signed_in? %>
-        <%= link_to "Edit this Article", edit_article_path(@article) %>
+        <% if user_signed_in? %>
+          <%= link_to "Edit this Article", edit_article_path(@article) %>
 
-        <%= link_to "Destroy me!", article_path(@article), :class => "article_links__link--right", data: {
+          <%= link_to "Destroy me!", article_path(@article), :class => "article_links__link--right", data: {
         turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
+        turbo_confirm: "Are you sure?",
+        turbo_frame:"_top"
       } %>
-      <% end %>
+        <% end %>
+      </div>
+      <p><%= @article.body %></p>
     </div>
-    <p><%= @article.body %></p>
-  </div>
+  </turbo-frame>
 
   <div class="article_tags">
     <h3>Tags:</h3>
